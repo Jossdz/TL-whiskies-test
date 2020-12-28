@@ -1,4 +1,7 @@
-/* html {
+import { createGlobalStyle } from "styled-components"
+
+export default createGlobalStyle`
+html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font: 112.5%/1.45em georgia, serif, sans-serif;
@@ -594,4 +597,6 @@ pre tt:after {
   html {
     font-size: 100%;
   }
-} */
+}
+
+`

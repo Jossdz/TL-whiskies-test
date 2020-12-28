@@ -1,6 +1,6 @@
 {
   "*.+(js|ts|tsx)": [
-    "eslint && npm run validate"
+    "eslint"
   ],
   "**/*.+(js|json|ts|tsx)": [
     "prettier --write",
