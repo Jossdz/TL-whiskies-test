@@ -45,7 +45,7 @@
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "validate": "npm-run-all --parallel lint build",
+    "validate": "npm-run-all --parallel check-types check-format lint build",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
