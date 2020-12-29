@@ -1,13 +1,28 @@
-import React from 'react'
-import BigImageStyled from '../styles/BigImage.styled'
-import Image from './image'
+import React from "react"
+import BigImageStyled from "../styles/BigImage.styled"
+import { useStaticQuery, graphql } from "gatsby"
 
 function BigImage() {
+  const {
+    allArticlesJson: { nodes },
+  } = useStaticQuery(graphql`
+    query Data {
+      allArticlesJson {
+        nodes {
+          title
+          teaser
+        }
+      }
+    }
+  `)
+
   return (
     <BigImageStyled>
       <div>
-        <div><h2>THE BEST WHISKIES FROM SCOTLAND</h2>
-          <p>Ever wanted to get into scotch but don't know where to start? We've reviewed some of the most popular whiskies and break them down by their tasting notes.</p></div>
+        <div>
+          <h2>{nodes[0].title.toUpperCase()}</h2>
+          <p>{nodes[0].teaser}</p>
+        </div>
       </div>
     </BigImageStyled>
   )
