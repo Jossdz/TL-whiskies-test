@@ -13,7 +13,7 @@ export default styled.article<{ region: string }>`
     ),
     url("/card-bg.svg");
   height: 544px;
-  background-image: url("/card-bg.svg");
+  background-image: url("/images/card-bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
