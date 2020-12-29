@@ -16,18 +16,17 @@ export interface Whiskey {
 
 const Header = ({
   allWhiskiesJson,
-  filterWhiskeis
+  filterWhiskeis,
 }: {
   allWhiskiesJson: {
     distinct: [string]
     edges: Whiskey[]
-  },
+  }
   filterWhiskeis: (region: string) => void
 }) => {
   const [active, setActive] = useState(0)
 
   function changeActive(n: string, i: number) {
-    console.log(filterWhiskeis)
     setActive(i)
     filterWhiskeis(n)
   }

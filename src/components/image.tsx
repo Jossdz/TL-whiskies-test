@@ -28,8 +28,6 @@ const Image = () => {
     }
   `)
 
-  console.log(data)
-
   if (!data?.whiskey?.childImageSharp?.fixed) {
     return <div>Picture not found</div>
   }

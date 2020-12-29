@@ -23,9 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allWhiskiesJson.edges.forEach(({ node }) => {
-    console.log("TYPE", node.title)
     node.title = node.title.toLowerCase()
-    console.log(node.title)
     createPage({
       path: node.title,
       component: path.resolve(`./src/templates/single.js`),
