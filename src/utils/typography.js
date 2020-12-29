@@ -6,7 +6,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: "Cabin",
-      styles: ["200", "400", "400i", "700", "700i"],
+      styles: ["200", "300", "300i", "400", "400i", "700", "700i"],
     },
   ],
   headerFontFamily: [
@@ -18,7 +18,7 @@ const typography = new Typography({
     "Arial",
     "sans-serif",
   ],
-  bodyFontFamily: ["Georgia", "serif"],
+  bodyFontFamily: ["Cabin", "Georgia", "serif"],
   // See below for the full list of options.
 })
 

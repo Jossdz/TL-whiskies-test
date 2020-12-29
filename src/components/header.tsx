@@ -1,24 +1,28 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import StyledHeader from "../styles/Header.styled"
 import Category from "../components/Category"
 
-const Header = () => {
-  const [active, setActive] = useState(0)
-  const { allWhiskiesJson } = useStaticQuery(graphql`
-    query MyQuery {
-      allWhiskiesJson {
-        edges {
-          node {
-            region
-          }
-        }
-        distinct(field: region)
-      }
-    }
-  `)
+export interface Whiskey {
+  node: {
+    region: string
+    cost: number
+    id: string
+    image: string
+    title: string
+    uri: string
+    tasting_notes: string[]
+  }
+}
 
-  console.log(allWhiskiesJson.distinct)
+const Header = ({
+  allWhiskiesJson,
+}: {
+  allWhiskiesJson: {
+    distinct: [string]
+    edges: Whiskey[]
+  }
+}) => {
+  const [active, setActive] = useState(0)
 
   function changeActive(n: number) {
     console.log("change")

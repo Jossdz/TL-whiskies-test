@@ -1,6 +1,24 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
+/* Colors */
+:root{
+  --bg-color: #222;
+  --islands-light: #D71E44;
+  --islands-dark: #9e1b34;
+  --islay-light: #A5238e;
+  --islay-dark:#6e2671;
+  --highlands-light:#563494;
+  --highlands-dark: #322773;
+  --lowlands-light: #0663ae;
+  --lowlands-dark: #174272;
+  --speyside-light: #1ab467;
+  --speyside-dark: #007b46;
+  --campbeltown-light: #f3b41b;
+  --campbeltown-dark: #d29d2a;
+
+}
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -9,6 +27,7 @@ html {
   overflow-y: scroll;
 }
 body {
+  overflow-x: hidden;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
