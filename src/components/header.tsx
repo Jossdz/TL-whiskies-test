@@ -16,18 +16,20 @@ export interface Whiskey {
 
 const Header = ({
   allWhiskiesJson,
+  filterWhiskeis
 }: {
   allWhiskiesJson: {
     distinct: [string]
     edges: Whiskey[]
-  }
+  },
+  filterWhiskeis: (region: string) => void
 }) => {
   const [active, setActive] = useState(0)
 
-  function changeActive(n: number) {
-    console.log("change")
-
-    setActive(n)
+  function changeActive(n: string, i: number) {
+    console.log(filterWhiskeis)
+    setActive(i)
+    filterWhiskeis(n)
   }
 
   return (
@@ -39,7 +41,7 @@ const Header = ({
             <Category
               key={i}
               isActive={i === active}
-              onClick={() => changeActive(i)}
+              onClick={() => changeActive(category, i)}
             >
               {category}
             </Category>

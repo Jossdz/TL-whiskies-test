@@ -16,33 +16,25 @@ const Image = ({ name }: { name: string }) => {
   const data = useStaticQuery(graphql`
     fragment squareImage on File {
       childImageSharp {
-        fluid(maxWidth: 200, maxHeight: 200) {
+        fluid(maxWidth: 1200, maxHeight: 1000) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     query Image {
-      gatsbyastronaut: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      whiskey: file(relativePath: { eq: "whiskey-glass.jpg" }) {
         ...squareImage
-      }
-      allWhiskiesJson {
-        edges {
-          node {
-            image
-            title
-          }
-        }
       }
     }
   `)
 
   console.log(data)
 
-  if (!data?.[name]?.childImageSharp?.fluid) {
+  if (!data?.whiskey?.childImageSharp?.fluid) {
     return <div>Picture not found</div>
   }
 
-  return <Img fluid={data[name].childImageSharp.fluid} />
+  return <Img fluid={data.whiskey.childImageSharp.fluid} />
 }
 
 export default Image

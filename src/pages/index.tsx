@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import Header from "../components/header"
 import { useStaticQuery, graphql } from "gatsby"
 import WhiskeisSection from "../components/main/WhiskeisSection"
-import Image from "../components/image"
+import Image from '../components/image'
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -30,11 +30,22 @@ const IndexPage = () => {
 
   const [whiskeis, setWhiskeis] = useState(initialState)
 
+  function filterWiskeis(region: string) {
+    console.log(whiskeis, region);
+    debugger
+    if (region == 'all') {
+
+      return setWhiskeis(initialState)
+    }
+    setWhiskeis([...initialState].filter(whiskey => whiskey.node.region === region))
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
-      <Header {...data} />
+      <Header {...data} filterWhiskeis={filterWiskeis} />
       <WhiskeisSection items={whiskeis} />
+      <Image />
     </Layout>
   )
 }
