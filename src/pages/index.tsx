@@ -32,13 +32,18 @@ const IndexPage = () => {
   const [whiskeis, setWhiskeis] = useState(initialState)
 
   function filterWiskeis(region: string) {
-    if (region === 'all') return setWhiskeis(initialState)
-    setWhiskeis([...initialState].filter(whiskey => whiskey.node.region === region))
+    if (region === "all") return setWhiskeis(initialState)
+    setWhiskeis(
+      [...initialState].filter(whiskey => whiskey.node.region === region)
+    )
   }
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        description="We've reviewed some of the most popular whiskies and break them down by their tasting notes."
+      />
       <Header {...data} filterWhiskeis={filterWiskeis} />
       <WhiskeisSection items={whiskeis} />
       <BigImage />
