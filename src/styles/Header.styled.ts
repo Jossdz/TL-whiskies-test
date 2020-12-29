@@ -15,6 +15,7 @@ export default styled.header`
   div {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     button {
       margin-right: 6px;

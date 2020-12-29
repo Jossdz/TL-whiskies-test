@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
@@ -26,13 +26,15 @@ const IndexPage = () => {
     }
   `)
 
-  console.log(data)
+  const initialState = data.allWhiskiesJson.edges
+
+  const [whiskeis, setWhiskeis] = useState(initialState)
 
   return (
     <Layout>
       <SEO title="Home" />
       <Header {...data} />
-      <WhiskeisSection items={data.allWhiskiesJson.edges} />
+      <WhiskeisSection items={whiskeis} />
     </Layout>
   )
 }

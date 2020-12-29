@@ -78,10 +78,23 @@ export default styled.article<{ region: string }>`
   @media only screen and (max-width: 1200px) {
     margin-bottom: 6rem;
     img {
-      left: 0;
+      left: 36px;
       bottom: -100px;
       width: 205px;
       position: relative;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    div:nth-child(2) {
+      padding: 0;
+    }
+    margin-bottom: 6rem;
+    img {
+      width: 160px;
+      height: auto;
+      position: relative;
+      bottom: -72px;
+      right: 0px;
     }
   }
 
