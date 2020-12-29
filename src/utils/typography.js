@@ -6,7 +6,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: "Cabin",
-      styles: ["400", "400i", "700", "700i"],
+      styles: ["200", "400", "400i", "700", "700i"],
     },
   ],
   headerFontFamily: [
