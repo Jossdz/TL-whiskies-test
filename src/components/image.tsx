@@ -12,12 +12,12 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-const Image = ({ name }: { name: string }) => {
+const Image = () => {
   const data = useStaticQuery(graphql`
     fragment squareImage on File {
       childImageSharp {
-        fluid(maxWidth: 1200, maxHeight: 1000) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -30,11 +30,11 @@ const Image = ({ name }: { name: string }) => {
 
   console.log(data)
 
-  if (!data?.whiskey?.childImageSharp?.fluid) {
+  if (!data?.whiskey?.childImageSharp?.fixed) {
     return <div>Picture not found</div>
   }
 
-  return <Img fluid={data.whiskey.childImageSharp.fluid} />
+  return <Img fixed={data.whiskey.childImageSharp.fixed} />
 }
 
 export default Image
