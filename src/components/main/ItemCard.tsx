@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 function ItemCard({
   item: {
-    node: { title, uri, tasting_notes, region, image, id, cost },
+    node: { title, tasting_notes, region, image, cost },
   },
 }: Props) {
   return (

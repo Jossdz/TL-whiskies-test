@@ -1,18 +1,11 @@
+import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
-export default styled.article<{ region: string }>`
-  text-decoration: none;
-
+const CardStyled = styled.article`
   font-family: Cabin;
   position: relative;
   background-color: var(--bg-color);
-  background-color: linear-gradient(
-      45deg,
-      rgba(34, 32, 0, 1) 0%,
-      rgba(51, 51, 51, 1) 51%,
-      rgba(34, 32, 0, 1) 100%
-    ),
-    url("/card-bg.svg");
   height: 544px;
   background-image: url("/images/card-bg.svg");
   background-repeat: no-repeat;
@@ -76,29 +69,6 @@ export default styled.article<{ region: string }>`
     right: -36px;
   }
 
-  @media only screen and (max-width: 1200px) {
-    margin-bottom: 6rem;
-    img {
-      left: 36px;
-      bottom: -100px;
-      width: 205px;
-      position: relative;
-    }
-  }
-  @media only screen and (max-width: 700px) {
-    div:nth-child(2) {
-      padding: 0;
-    }
-    margin-bottom: 6rem;
-    img {
-      width: 160px;
-      height: auto;
-      position: relative;
-      bottom: -72px;
-      right: 0px;
-    }
-  }
-
   &::after {
     position: absolute;
     right: -8px;
@@ -112,4 +82,64 @@ export default styled.article<{ region: string }>`
       var(--${props => props.region}-dark) 100%
     );
   }
+
+  background-color: #222;
 `
+
+const Button = styled.button`
+  margin-top: 2rem;
+  font-family: Cabin;
+  font-size: 22px;
+  font-weight: 200;
+  padding: 6px 18px;
+  border-radius: 30px;
+  border: 0.5px solid #c2c2c2;
+  background-color: "white";
+  color: "black";
+  &:focus {
+    outline: none;
+  }
+`
+
+function single({
+  pageContext: {
+    node: { title, region, cost, tasting_notes, image },
+  },
+}) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ width: "500px" }}>
+        <CardStyled region={region}>
+          <div>
+            <h3>{title}</h3>
+            <small>{region} Region</small>
+            <h3>${cost}</h3>
+            <ul>
+              {tasting_notes.map((note, i) => (
+                <li key={i}>{note}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <img src={`/images/${image}`} alt={`${title} image`} />
+          </div>
+        </CardStyled>
+        <Link to="/">
+          <Button>Back</Button>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export default single
