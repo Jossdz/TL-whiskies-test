@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
 export default styled.article<{ region: string }>`
+  &:hover {
+    transform: scale(1.04);
+  }
+  transition: all 0.2s linear;
   text-decoration: none;
 
   font-family: Cabin;
